@@ -1,15 +1,10 @@
 
-var ViewModel = function () {
-
+var Cat = function () {
     this.clickCount = ko.observable(0);
     this.name = ko.observable('Ben');
     this.nickNames = ko.observableArray(['B-dawg', 'BamBam', 'Loogaloo', 'Boozie', 'Benniferous']);
     this.imgSrc = ko.observable('./img/22252709_010df3379e_z.jpg');
     this.imgAttribution = ko.observable('www.websitelkjasdf.com');
-
-    this.incrementCounter = function () {
-        this.clickCount( this.clickCount() + 1);
-    };
 
     this.level = ko.computed(function () {
         if (this.clickCount() < 10) {
@@ -24,6 +19,17 @@ var ViewModel = function () {
             return 'adult';
         }
     }, this);
+};
+
+
+
+var ViewModel = function () {
+
+    this.incrementCounter = function () {
+        this.clickCount( this.clickCount() + 1);
+    };
+
+    this.currentCat = ko.observable( new Cat() );
 };
 
 ko.applyBindings(new ViewModel());
