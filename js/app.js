@@ -51,9 +51,8 @@ var ViewModel = function () {
         self.currentCat().clickCount( self.currentCat().clickCount() + 1);
     };
 
-    this.displayCat = function (index) {
-        console.log(index);
-        self.currentCat( self.catList()[index] );
+    this.displayCat = function (clickedCat) {
+        self.currentCat( clickedCat );
     }
 };
 
