@@ -45,11 +45,16 @@ var ViewModel = function () {
         self.catList.push(new Cat(catObj));
     });
 
+    this.currentCat = ko.observable( this.catList()[0]);
+
     this.incrementCounter = function () {
         self.currentCat().clickCount( self.currentCat().clickCount() + 1);
     };
 
-    this.currentCat = ko.observable( this.catList()[0]);
+    this.displayCat = function (index) {
+        console.log(index);
+        self.currentCat( self.catList()[index] );
+    }
 };
 
 ko.applyBindings(new ViewModel());
